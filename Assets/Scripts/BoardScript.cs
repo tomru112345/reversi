@@ -7,12 +7,12 @@ public class BoardScript : MonoBehaviour {
     public GameObject blackStonePrefab_;
     public GameObject whiteStonePrefab_;
 
-    static int colNum_ = 8; // 縦のグリッド数
-    static int rowNum_ = 8; // 縦横のグリッド数
+    int colNum_ = 8; // 縦のグリッド数
+    int rowNum_ = 8; // 縦横のグリッド数
     int planeSize_ = 10; // 1グリッドの大きさ
     GameObject grid;
     GridScript gridScript;
-    GameObject[] grids_ = new GameObject[colNum_ * rowNum_];
+    GameObject[] grids_ = new GameObject[64];
 
     public int GetColNum()
     {
@@ -46,12 +46,14 @@ public class BoardScript : MonoBehaviour {
                 float posX = (x - offsetX) * planeSize_; // グリッド中心のx座標
                 Vector3 pos = new Vector3(posX, 0f, posZ); // グリッド中心の三次元座標
                 grid = (GameObject)Instantiate(gridPrefab_, pos, Quaternion.identity); // グリッドの生成
-
+                grid.name = grid.name.Replace( "(Clone)", (z * colNum_ + x).ToString());
+                grid.transform.parent = GameObject.Find("Grids").transform;
+                grid.AddComponent<GridScript>();
                 // グリッドの登録
                 gridScript = grid.GetComponent<GridScript>();
-                Debug.Log(gridScript);
-                gridScript.SetRowNo(z);
                 gridScript.SetColNo(x);
+                gridScript.SetRowNo(z);
+                
                 gridScript.SetBlackStonePrefab(blackStonePrefab_);
                 gridScript.SetWhiteStonePrefab(whiteStonePrefab_);
                 gridScript.SetBoardScript(this);

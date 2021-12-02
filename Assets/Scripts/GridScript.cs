@@ -126,12 +126,16 @@ public class GridScript : MonoBehaviour {
     {
         // 黒か白のPrefabを設定
         GameObject stonePrefab;
-        if (isBlack) stonePrefab = blackStonePrefab_;
-        else stonePrefab = whiteStonePrefab_;
-
+        if (isBlack) {
+            stonePrefab = blackStonePrefab_;
+        }
+        else{
+            stonePrefab = whiteStonePrefab_;
+        }
         // 石を置く
         stone_ = (GameObject)Instantiate(stonePrefab, transform.position, Quaternion.identity);
-
+        stone_.transform.parent = GameObject.Find("stones").transform;
+        stone_.AddComponent<StoneScript>();
         // 石の色を設定
         stone_.GetComponent<StoneScript>().IsBlack(isBlack);
     }
