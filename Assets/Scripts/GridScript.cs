@@ -18,9 +18,19 @@ public class GridScript : MonoBehaviour {
         colNo_ = colNo;
     }
 
+    public int GetColNo()
+    {
+        return colNo_;
+    }
+
     public void SetRowNo(int rowNo)
     {
         rowNo_ = rowNo;
+    }
+
+    public int GetRowNo()
+    {
+        return rowNo_;
     }
 
     public void SetBlackStonePrefab(GameObject blackStonePrefab)

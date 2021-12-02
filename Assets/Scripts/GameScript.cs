@@ -13,6 +13,8 @@ public class GameScript : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) // タップ検知
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 10, false);
+
             RaycastHit hit = new RaycastHit();
             if (Physics.Raycast(ray, out hit))
             {

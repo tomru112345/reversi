@@ -2,6 +2,12 @@
 
 Unity で Photon(PUN2) を私用してオンライン対戦オセロを作成する
 
+## ToDo
+
+* オンライン
+* アニメーション
+* パス
+
 ## 参考資料
 
 * [Unityでリバーシを作ってみた 1](https://nullsuke.com/entry/reversi1)
