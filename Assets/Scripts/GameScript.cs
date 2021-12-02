@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameScript : MonoBehaviour {
+public class GameScript : MonoBehaviour
+{
 
     bool isBlackTurn;
 
@@ -13,8 +14,6 @@ public class GameScript : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) // タップ検知
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 10, false);
-
             RaycastHit hit = new RaycastHit();
             if (Physics.Raycast(ray, out hit))
             {
@@ -26,11 +25,13 @@ public class GameScript : MonoBehaviour {
         return false;
     }
 
-    void Start () {
+    void Start()
+    {
         isBlackTurn = true;
     }
-	
-	void Update () {
+
+    void Update()
+    {
         // タップ検知
         GridScript gridScript;
         if (DetectTap(out gridScript))
@@ -52,5 +53,5 @@ public class GameScript : MonoBehaviour {
                 }
             }
         }
-	}
+    }
 }
