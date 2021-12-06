@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 1738733343}
   - component: {fileID: 1738733342}
   - component: {fileID: 1738733341}
+  - component: {fileID: 1738733346}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -430,6 +431,7 @@ MonoBehaviour:
   gridPrefab_: {fileID: 7857158883316985460, guid: 911ed1c85b204ea42b572143daec2861, type: 3}
   blackStonePrefab_: {fileID: 6085056321412164675, guid: 7dee88d1c5a40064c84b73577839559e, type: 3}
   whiteStonePrefab_: {fileID: 4278248213106269170, guid: e6d57453e4beb674d9bf6c234e112026, type: 3}
+  StonePrefab_: {fileID: 1901976907930604768, guid: f2de5fc1b82226f489cc4db5288b51de, type: 3}
 --- !u!4 &1738733345
 Transform:
   m_ObjectHideFlags: 0
@@ -444,3 +446,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1738733346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738733340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad65a56adb12afd44ac112b30029c86d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

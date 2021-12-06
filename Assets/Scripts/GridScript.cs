@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class GridScript : MonoBehaviour {
+using System.Threading;
+using System.Threading.Tasks;
+public class GridScript : MonoBehaviour
+{
 
     GameObject stone_;
     GameObject blackStonePrefab_, whiteStonePrefab_;
+    GameObject StonePrefab_;
     BoardScript boardScript_;
     int colNo_, rowNo_;
     int colNum_, rowNum_;
@@ -41,6 +44,11 @@ public class GridScript : MonoBehaviour {
     public void SetWhiteStonePrefab(GameObject whiteStonePrefab)
     {
         whiteStonePrefab_ = whiteStonePrefab;
+    }
+
+    public void SetStonePrefab(GameObject StonePrefab)
+    {
+        StonePrefab_ = StonePrefab;
     }
 
     public GameObject GetStone()
@@ -112,6 +120,7 @@ public class GridScript : MonoBehaviour {
             {
                 Destroy(stone);
                 grid.GetComponent<GridScript>().PutStone(isBlackTurn);
+                // stone.transform.transform.Rotate(new Vector3(0, 180, 0));
                 TurnStoneDir(isBlackTurn, dir, colNo + dirCol_[dir], rowNo + dirRow_[dir]);
             }
             else
@@ -131,22 +140,27 @@ public class GridScript : MonoBehaviour {
             }
         }
     }
-
     public void PutStone(bool isBlack)
+    // public async Task PutStone(bool isBlack)
     {
         // 黒か白のPrefabを設定
         GameObject stonePrefab;
-        if (isBlack) {
+        if (isBlack)
+        {
             stonePrefab = blackStonePrefab_;
+
         }
-        else{
+        else
+        {
             stonePrefab = whiteStonePrefab_;
         }
         // 石を置く
-        stone_ = (GameObject)Instantiate(stonePrefab, transform.position, Quaternion.identity);
+        Vector3 pos = transform.position;
+        pos.y += 0.25f;
+        stone_ = (GameObject)Instantiate(stonePrefab, pos, Quaternion.identity);
         stone_.transform.parent = GameObject.Find("stones").transform;
-        stone_.AddComponent<StoneScript>();
         // 石の色を設定
+        stone_.AddComponent<StoneScript>();
         stone_.GetComponent<StoneScript>().IsBlack(isBlack);
     }
 

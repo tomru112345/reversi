@@ -5,7 +5,7 @@ using UnityEngine;
 public class StoneScript : MonoBehaviour
 {
     bool isBlack_;
-    
+
     public bool IsBlack()
     {
         return isBlack_;
@@ -14,17 +14,5 @@ public class StoneScript : MonoBehaviour
     public void IsBlack(bool isBlack)
     {
         isBlack_ = isBlack;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
